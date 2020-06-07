@@ -5,9 +5,8 @@ Source: [COVID-19 Data Repository by the Center for Systems Science and Engineer
 
 ## Missouri New Daily Deaths by Metropolitan Statistcal Areas
 ![](images/mo_daily_deaths.png)
-Cumulative Deaths in legend
+Legend shows cumulative deaths
 
-## Missouri New Daily Deaths by Metropolitan Statistcal Areas
+## Missouri New Daily Confirmed Cases by Metropolitan Statistcal Areas
 ![](images/mo_daily_cases.png)
-Cumulative Confirmed Cases in legend
-
+Legend shows cumulative confirmed cases
