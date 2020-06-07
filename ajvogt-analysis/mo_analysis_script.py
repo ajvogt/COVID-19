@@ -64,7 +64,7 @@ def plot_daily_info(path, msa, data='deaths'):
 
     plt.show()
 
-def write_markdown(filename):
+def write_markdown(filename, msa):
     """Writing markdown file
     """
     with open(filename) as f:
@@ -77,7 +77,7 @@ def write_markdown(filename):
     new_md = ''
     for line in md:
         new_md += line +'\n'
-    
+
     f = open(filename, 'w')
     f.write(new_md)
     f.close()
@@ -101,4 +101,4 @@ if __name__ == "__main__":
                     data='cases')
 
     print('=== Updating Markdown ===')
-    write_markdown('missouri_analysis.md')
+    write_markdown('missouri_analysis.md', msa)
