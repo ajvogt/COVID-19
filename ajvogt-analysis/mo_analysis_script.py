@@ -26,12 +26,13 @@ def plot_daily_info(path, msa, data='deaths'):
     cols = df.columns[df.columns.str.contains('/20')]
     xlabels = df.loc[:, cols].columns
     xticks = np.arange(0, xlabels.shape[0], 1)
-    plt.figure(figsize=(8, 5))
+    plt.figure(figsize=(10, 5))
 
     # Missouri
     cond = "(Province_State == 'Missouri')"
     y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-    plt.plot(xticks, y, label='Missouri')
+    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
+    plt.plot(xticks, y, label='Missouri: %i'%latest_total[-1])
 
     # MSAs
     for area in msa.MSA.unique():
@@ -42,13 +43,15 @@ def plot_daily_info(path, msa, data='deaths'):
         cond = cond[:-1]
 
         y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-        plt.plot(xticks, y, label=area)
+        latest_total = df.query(cond).loc[:, cols].sum(axis=0)
+        plt.plot(xticks, y, label='%s: %i'%(area, latest_total[-1]))
 
     # St. Louis City + County
     cond = "((Province_State == 'Missouri')&(Admin2 == 'St. Louis'))|"
     cond += "((Province_State == 'Missouri')&(Admin2 == 'St. Louis City'))"
     y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-    plt.plot(xticks, y, label='St. Louis City + County',
+    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
+    plt.plot(xticks, y, label='St. Louis City + County: %i'%latest_total[-1],
             linestyle='--', color='k')
 
     steps = np.arange(0, xticks.shape[0], 7)
