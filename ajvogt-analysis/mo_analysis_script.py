@@ -34,6 +34,15 @@ def plot_daily_info(path, msa, data='deaths'):
     latest_total = df.query(cond).loc[:, cols].sum(axis=0)
     plt.plot(xticks, y, label='Missouri: %i'%latest_total[-1])
 
+    cond = "(Province_State == 'Missouri')&"
+    for row in msa.Admin2.values:
+        cond += "(Admin2 != '%s')&"%row
+    cond = cond[:-1]
+    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
+    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
+    plt.plot(xticks, y, label='Missouri non-MSA: %i'%latest_total[-1],
+             color='C0', linestyle='--')
+
     # MSAs
     for area in msa.MSA.unique():
         cond = ""
@@ -52,7 +61,7 @@ def plot_daily_info(path, msa, data='deaths'):
     y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
     latest_total = df.query(cond).loc[:, cols].sum(axis=0)
     plt.plot(xticks, y, label='St. Louis City + County: %i'%latest_total[-1],
-            linestyle='--', color='k')
+            linestyle='--', color='C1')
 
     steps = np.arange(0, xticks.shape[0], 7)
     plt.xticks(xticks[steps], xlabels[steps], rotation=90)
