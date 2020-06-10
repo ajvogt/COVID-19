@@ -2,6 +2,7 @@
 Author: Adam J. Vogt  
 Updated: 06/09/2020  
 Source: [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)  
+Source Code: `/ajvogt-analysis/mo_analysis_script.py`
 
 ## Missouri New Daily Deaths by Metropolitan Statistcal Areas
 ![](images/mo_daily_deaths.png)
@@ -66,12 +67,3 @@ Legend shows cumulative confirmed cases
 |St. Joseph|Missouri|Buchanan|
 |St. Joseph|Missouri|DeKalb|
 |St. Joseph|Kansas|Doniphan|
-
-
-
-
-
-
-
-
-
