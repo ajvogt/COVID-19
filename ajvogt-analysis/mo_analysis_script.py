@@ -78,15 +78,29 @@ def write_markdown(filename, msa):
     """
     with open(filename) as f:
         md = f.read()
-    
     md = md.split('\n')
+
+    # update date
     update = [x for x in md if 'Updated:' in x][0]
     ind = md.index(update)
     md[ind] = 'Updated: %s  '%(date.today().strftime("%m/%d/%Y"))
+    
+    # msa table
+    start = [x for x in md if '|-' in x][0]
+    ind = md.index(start)
+    md = md[:ind+1]            
+
+    # write new file
     new_md = ''
     for line in md:
         new_md += line +'\n'
-
+    
+    for row in msa.values:
+        line = '|'
+        for i in row:
+            line += ' %s |'%i
+        new_md += line +'\n'
+    
     f = open(filename, 'w')
     f.write(new_md)
     f.close()
