@@ -95,10 +95,17 @@ def write_markdown(filename, msa):
     for line in md:
         new_md += line +'\n'
     
-    for row in msa.values:
+    # including county info
+    df = pd.read_csv(path+defaults[data]['filename'])
+    cols = df.columns[df.columns.str.contains('/20')]
+
+    for row in msa.values:        
         line = '|'
         for i in row:
             line += ' %s |'%i
+        
+        cond += "((Province_State == '%s')&(Admin2 == '%s'))|"%(row[1], row[2])
+        df.query(cond).loc[:, cols][-1]
         new_md += line +'\n'
     
     f = open(filename, 'w')
