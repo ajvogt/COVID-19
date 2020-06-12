@@ -102,7 +102,6 @@ def write_markdown(filename, msa):
     deaths_cols = deaths.columns[deaths.columns.str.contains('/20')]
     cases_cols = cases.columns[cases.columns.str.contains('/20')]
 
-
     for row in msa.values:        
         line = '|'
         for i in row:
@@ -115,7 +114,9 @@ def write_markdown(filename, msa):
         line += '%i |'%(vals[-1]-vals[-8])
         new_md += line +'\n'
     
+    cond = (cases.Province_State == 'Missouri')&(~cases.Admin2.isin(msa.Admin2))
     import pdb; pdb.set_trace()
+
     f = open(filename, 'w')
     f.write(new_md)
     f.close()
