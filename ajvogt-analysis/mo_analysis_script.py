@@ -109,13 +109,20 @@ def write_markdown(filename, msa):
         
         cond = "((Province_State == '%s')&(Admin2 == '%s'))"%(row[1], row[2])
         vals = cases.query(cond)[cases_cols].values[0]
-        line += '%i |'%vals[-1]
-        line += '%i |'%(vals[-1]-vals[-15])
-        line += '%i |'%(vals[-1]-vals[-8])
+        line += ' %i |'%vals[-1]
+        line += ' %i |'%(vals[-1]-vals[-15])
+        line += ' %i |'%(vals[-1]-vals[-8])
         new_md += line +'\n'
     
-    cond = (cases.Province_State == 'Missouri')&(~cases.Admin2.isin(msa.Admin2))
-    import pdb; pdb.set_trace()
+    cond = (cases.Province_State == 'Missouri')&\
+           (~cases.Admin2.isin(msa.Admin2))&\
+           (~cases.Admin2.isin(['Out of MO', 'Unassigned']))
+    for row in cases[cond].values:
+        line = '| Missouri non-MSA | Missouri | %s | '%row[5]
+        line += '%i |'%row[-1]
+        line += ' %i |'%(row[-1]-row[-15])
+        line += ' %i |'%(row[-1]-row[-8])
+        new_md += line +'\n'
 
     f = open(filename, 'w')
     f.write(new_md)
@@ -129,7 +136,6 @@ if __name__ == "__main__":
     print('=== Reading MSA Data ===')
     msa = pd.read_csv('statistical_areas.csv')
 
-    """
     print('=== Pulling and plotting Deaths Data ===')
     plot_daily_info(path=path,
                     msa=msa,
@@ -139,7 +145,6 @@ if __name__ == "__main__":
     plot_daily_info(path=path,
                     msa=msa,
                     data='cases')
-    """
 
     print('=== Updating Markdown ===')
     write_markdown('missouri_analysis.md', msa)
