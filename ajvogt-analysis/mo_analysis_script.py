@@ -9,20 +9,22 @@ import matplotlib.pyplot as plt
 
 plt.style.use('fivethirtyeight')
 
+DEFAULTS = {
+    'deaths': {
+        'filename': 'time_series_covid19_deaths_US.csv',
+        'ylabel': 'New Daily Deaths'
+    },
+    'cases': {
+        'filename': 'time_series_covid19_confirmed_US.csv',
+        'ylabel': 'New Daily Confirmed Cases'
+    }
+}
+
 
 def plot_daily_info(path, msa, data='deaths'):
-    defaults = {
-        'deaths': {
-            'filename': 'time_series_covid19_deaths_US.csv',
-            'ylabel': 'New Daily Deaths'
-        },
-        'cases': {
-            'filename': 'time_series_covid19_confirmed_US.csv',
-            'ylabel': 'New Daily Confirmed Cases'
-        }
-    }
+    
 
-    df = pd.read_csv(path+defaults[data]['filename'])
+    df = pd.read_csv(path+DEFAULTS[data]['filename'])
     cols = df.columns[df.columns.str.contains('/20')]
     xlabels = df.loc[:, cols].columns
     xticks = np.arange(0, xlabels.shape[0], 1)
@@ -65,7 +67,7 @@ def plot_daily_info(path, msa, data='deaths'):
 
     steps = np.arange(0, xticks.shape[0], 7)
     plt.xticks(xticks[steps], xlabels[steps], rotation=90)
-    plt.ylabel('%s\n(7-day Moving Average)'%defaults[data]['ylabel'])
+    plt.ylabel('%s\n(7-day Moving Average)'%DEFAULTS[data]['ylabel'])
     plt.title('Missouri Metropolitan Statistical Areas')
     plt.legend(loc='upper left')
     plt.tight_layout()
@@ -95,12 +97,34 @@ def write_markdown(filename, msa):
     for line in md:
         new_md += line +'\n'
     
+    # including county info
+    deaths = pd.read_csv(path+DEFAULTS['deaths']['filename'])
+    cases = pd.read_csv(path+DEFAULTS['cases']['filename'])
+    deaths_cols = deaths.columns[deaths.columns.str.contains('/20')]
+    cases_cols = cases.columns[cases.columns.str.contains('/20')]
+
     for row in msa.values:
         line = '|'
         for i in row:
             line += ' %s |'%i
+        
+        cond = "((Province_State == '%s')&(Admin2 == '%s'))"%(row[1], row[2])
+        vals = cases.query(cond)[cases_cols].values[0]
+        line += ' %i |'%vals[-1]
+        line += ' %i |'%(vals[-1]-vals[-15])
+        line += ' %i |'%(vals[-1]-vals[-8])
         new_md += line +'\n'
     
+    cond = (cases.Province_State == 'Missouri')&\
+           (~cases.Admin2.isin(msa.Admin2))&\
+           (~cases.Admin2.isin(['Out of MO', 'Unassigned']))
+    for row in cases[cond].values:
+        line = '| Missouri non-MSA | Missouri | %s | '%row[5]
+        line += '%i |'%row[-1]
+        line += ' %i |'%(row[-1]-row[-15])
+        line += ' %i |'%(row[-1]-row[-8])
+        new_md += line +'\n'
+
     f = open(filename, 'w')
     f.write(new_md)
     f.close()
