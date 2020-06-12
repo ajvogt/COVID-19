@@ -22,7 +22,7 @@ Legend shows cumulative confirmed cases
 | St. Louis-Farmington | Missouri | St. Charles |
 | St. Louis-Farmington | Missouri | St. Louis |
 | St. Louis-Farmington | Missouri | St. Louis City |
-| St. Louis-Farmington | Missouri | Farmington |
+| St. Louis-Farmington | Missouri | St. Francois |
 | St. Louis-Farmington | Illinois | Monroe |
 | St. Louis-Farmington | Illinois | St. Clair |
 | St. Louis-Farmington | Illinois | Madison |
@@ -34,7 +34,7 @@ Legend shows cumulative confirmed cases
 | Cape Girardeau-Sikeston | Missouri | Cape Girardeau |
 | Cape Girardeau-Sikeston | Missouri | Bollinger |
 | Cape Girardeau-Sikeston | Illinois | Alexander |
-| Cape Girardeau-Sikeston | Missouri | Sikeston |
+| Cape Girardeau-Sikeston | Missouri | Scott |
 | Springfield | Missouri | Greene |
 | Springfield | Missouri | Christian |
 | Springfield | Missouri | Webster |
@@ -49,6 +49,7 @@ Legend shows cumulative confirmed cases
 | Columbia-Jefferson City | Missouri | Cole |
 | Columbia-Jefferson City | Missouri | Callaway |
 | Columbia-Jefferson City | Missouri | Osage |
+| Kansas City | Missouri | Kansas City |
 | Kansas City | Missouri | Jackson |
 | Kansas City | Missouri | Clay |
 | Kansas City | Missouri | Cass |
