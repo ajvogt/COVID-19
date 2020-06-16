@@ -109,20 +109,22 @@ def write_markdown(filename, msa):
             line += ' %s |'%i
         
         cond = "((Province_State == '%s')&(Admin2 == '%s'))"%(row[1], row[2])
-        vals = cases.query(cond)[cases_cols].values[0]
-        line += ' %i |'%vals[-1]
-        line += ' %i |'%(vals[-1]-vals[-15])
-        line += ' %i |'%(vals[-1]-vals[-8])
+        vals_cases = cases.query(cond)[cases_cols].values[0]
+        line += ' %i |'%vals_cases[-1]
+        vals_deaths = deaths.query(cond)[deaths_cols].values[0]
+        line += ' %i |'%vals_deaths[-1]
         new_md += line +'\n'
     
     cond = (cases.Province_State == 'Missouri')&\
            (~cases.Admin2.isin(msa.Admin2))&\
            (~cases.Admin2.isin(['Out of MO', 'Unassigned']))
-    for row in cases[cond].values:
-        line = '| Missouri non-MSA | Missouri | %s | '%row[5]
-        line += '%i |'%row[-1]
-        line += ' %i |'%(row[-1]-row[-15])
-        line += ' %i |'%(row[-1]-row[-8])
+    for row in cases[cond].Admin2.values:
+        line = '| Missouri non-MSA | Missouri | %s | '%row
+        cond = "((Province_State == 'Missouri')&(Admin2 == '%s'))"%row
+        vals_cases = cases.query(cond)[cases_cols].values[0]
+        line += ' %i |'%vals_cases[-1]
+        vals_deaths = deaths.query(cond)[deaths_cols].values[0]
+        line += ' %i |'%vals_deaths[-1]
         new_md += line +'\n'
 
     f = open(filename, 'w')
