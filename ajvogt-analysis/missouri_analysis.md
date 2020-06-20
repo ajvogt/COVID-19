@@ -4,6 +4,16 @@ Updated: 06/20/2020
 Source: [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)  
 Source Code: `/ajvogt-analysis/mo_analysis_script.py`
 
+This analysis shows the Johns Hopkins University COVID-19 data broken down by 
+[Metropolitan Statistcal Area](https://en.wikipedia.org/wiki/Metropolitan_statistical_area) (MSA)
+ combinations within the state of Missouri. The list of counties in each MSA comibination can be found in the 
+[table](#msa-counties) 
+below. The [detailed map of MSAs](https://www2.census.gov/geo/maps/metroarea/us_wall/Sep2018/CBSA_WallMap_Sep2018.pdf) 
+can be found here.  The clusters used in the charts and tables below 
+are a custom combination of MSAs and 
+[Combined Statistical Areas](https://en.wikipedia.org/wiki/Combined_statistical_area) (CSA).
+
+
 ## Missouri New Daily Deaths by Metropolitan Statistcal Areas
 ![](images/mo_daily_deaths.png)
 Legend shows cumulative deaths
@@ -12,6 +22,7 @@ Legend shows cumulative deaths
 ![](images/mo_daily_cases.png)
 Legend shows cumulative confirmed cases
 
+<a name="msa-counties"></a>
 ## Metropolitan Statistical Area (MSA) Counties
 | MSA | State | County | Total Cases | Total Deaths |
 |-----|-------|--------|---|---|
