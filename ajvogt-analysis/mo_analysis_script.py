@@ -137,7 +137,7 @@ if __name__ == "__main__":
     path = '../csse_covid_19_data/csse_covid_19_time_series/'
 
     print('=== Reading MSA Data ===')
-    msa = pd.read_csv('statistical_areas.csv')
+    msa = pd.read_csv('data/statistical_areas.csv')
 
     print('=== Pulling and plotting Deaths Data ===')
     plot_daily_info(path=path,
