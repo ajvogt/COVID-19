@@ -2,7 +2,8 @@
 Author: Adam J. Vogt  
 Updated: 06/28/2020  
 Source: [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)  
-Source Code: `/ajvogt-analysis/mo_analysis_script.py`
+Source Code: `/ajvogt-analysis/mo_analysis_script.py`  
+Release Notes: [release_notes.md](https://github.com/ajvogt/COVID-19/blob/master/ajvogt-analysis/release_notes.md)
 
 This analysis shows the Johns Hopkins University COVID-19 data broken down by 
 [Metropolitan Statistcal Area](https://en.wikipedia.org/wiki/Metropolitan_statistical_area) (MSA)
