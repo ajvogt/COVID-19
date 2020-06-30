@@ -1,6 +1,6 @@
 # COVID-19 Missouri Statistics & Regional Breakdowns
 Author: Adam J. Vogt  
-Updated: 06/29/2020  
+Updated: 06/30/2020  
 Source: [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)  
 Source Code: `/ajvogt-analysis/mo_analysis_script.py`  
 Release Notes: [release_notes.md](https://github.com/ajvogt/COVID-19/blob/master/ajvogt-analysis/release_notes.md)
@@ -32,15 +32,15 @@ Legend shows cumulative confirmed cases
 | St. Louis-Farmington | Missouri | Franklin | 204 | 18 |
 | St. Louis-Farmington | Missouri | Jefferson | 445 | 19 |
 | St. Louis-Farmington | Missouri | St. Charles | 1010 | 73 |
-| St. Louis-Farmington | Missouri | St. Louis | 6357 | 568 |
-| St. Louis-Farmington | Missouri | St. Louis City | 2406 | 155 |
+| St. Louis-Farmington | Missouri | St. Louis | 6446 | 568 |
+| St. Louis-Farmington | Missouri | St. Louis City | 2453 | 155 |
 | St. Louis-Farmington | Missouri | St. Francois | 138 | 2 |
-| St. Louis-Farmington | Illinois | Monroe | 123 | 13 |
-| St. Louis-Farmington | Illinois | St. Clair | 1801 | 135 |
-| St. Louis-Farmington | Illinois | Madison | 917 | 68 |
+| St. Louis-Farmington | Illinois | Monroe | 126 | 13 |
+| St. Louis-Farmington | Illinois | St. Clair | 1863 | 135 |
+| St. Louis-Farmington | Illinois | Madison | 931 | 68 |
 | St. Louis-Farmington | Illinois | Macoupin | 51 | 3 |
 | St. Louis-Farmington | Illinois | Jersey | 35 | 1 |
-| St. Louis-Farmington | Illinois | Clinton | 233 | 17 |
+| St. Louis-Farmington | Illinois | Clinton | 236 | 17 |
 | St. Louis-Farmington | Illinois | Calhoun | 1 | 0 |
 | St. Louis-Farmington | Illinois | Bond | 13 | 1 |
 | Cape Girardeau-Sikeston | Missouri | Cape Girardeau | 141 | 3 |
@@ -71,15 +71,15 @@ Legend shows cumulative confirmed cases
 | Kansas City | Missouri | Clinton | 23 | 0 |
 | Kansas City | Missouri | Bates | 12 | 1 |
 | Kansas City | Missouri | Caldwell | 9 | 0 |
-| Kansas City | Kansas | Johnson | 1613 | 86 |
-| Kansas City | Kansas | Wyandotte | 2191 | 80 |
-| Kansas City | Kansas | Leavenworth | 1146 | 7 |
-| Kansas City | Kansas | Miami | 26 | 0 |
-| Kansas City | Kansas | Linn | 13 | 0 |
+| Kansas City | Kansas | Johnson | 1651 | 86 |
+| Kansas City | Kansas | Wyandotte | 2234 | 82 |
+| Kansas City | Kansas | Leavenworth | 1162 | 7 |
+| Kansas City | Kansas | Miami | 27 | 0 |
+| Kansas City | Kansas | Linn | 14 | 0 |
 | St. Joseph | Missouri | Andrew | 49 | 0 |
 | St. Joseph | Missouri | Buchanan | 838 | 3 |
 | St. Joseph | Missouri | DeKalb | 11 | 0 |
-| St. Joseph | Kansas | Doniphan | 26 | 0 |
+| St. Joseph | Kansas | Doniphan | 25 | 0 |
 | Missouri non-MSA | Missouri | Adair |  90 | 0 |
 | Missouri non-MSA | Missouri | Atchison |  3 | 0 |
 | Missouri non-MSA | Missouri | Audrain |  138 | 1 |
