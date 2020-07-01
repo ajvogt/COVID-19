@@ -18,8 +18,9 @@
 ### Analysis Page
 - [ ] Update description to accurately reflect CSA vs. MSA
 - [ ] Make table for CSA info
-- [ ] Include 7 & 14 day changes for each county
+- [ ] Include 7, 14, & 28 day changes for each county
 - [ ] Plot top CSAs (for latest daily case change) with testing data
+- [ ] Analysis breakdown of St. Louis-Farmington counties
 - [ ] Include release notes and to-do list
 - [ ] Update color scheme, plot markers, and line thickness
 
