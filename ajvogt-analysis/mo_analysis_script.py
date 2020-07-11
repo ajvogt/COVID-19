@@ -20,6 +20,36 @@ DEFAULTS = {
     }
 }
 
+class RegionalAnalysis(Object):
+    def __init__(self, data_path, stat_area_path):
+        self.data_path = data_path
+        self.stat_area_path = stat_area_path
+        self.stat_area_map = pd.DataFrame()
+        self.stat_area_data = pd.DataFrame()
+        self.state_data = pd.DataFrame()
+        self.county_data = pd.DataFrame()
+
+    def _pull_stat_area_map(self):
+        return pd.read_csv(self.stat_area_path+'statistical_areas.csv')
+
+    def _pull_state_data(self):
+
+        df = pd.read_csv(self.data_path+'csse_covid_19_time_series.csv')
+        df = df[df.Province_State == 'Missouri']
+
+        return df
+
+    def _pull_county_data(self):
+
+        pass
+    
+    def pull_all_data(self):
+
+        self.stat_area_map = self._pull_stat_area_map()
+        self.state_data = self._pull_state_data()
+        self.county_data = self._pull_county_data()
+        self.stat_area_data = self._compile_stat_area_data()
+
 
 def plot_daily_info(path, msa, data='deaths'):
     
