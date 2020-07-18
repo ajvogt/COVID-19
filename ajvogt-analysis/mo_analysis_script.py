@@ -72,6 +72,60 @@ class RegionalAnalysis(object):
         pass
 
 
+def plot_daily_cases(df):
+    # Figure Info
+    plt.figure(figsize=(10, 5))
+
+    # X-axis
+    cols = df.columns[df.columns.str.contains('/20')]
+    xlabels = df.loc[:, cols].columns
+    xticks = np.arange(0, xlabels.shape[0], 1)
+
+    # Missouri
+    cond = "(Province_State == 'Missouri')"
+    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
+    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
+    plt.plot(xticks, y, label='Missouri: %i'%latest_total[-1])
+
+    cond = "(Province_State == 'Missouri')&"
+    for row in msa.Admin2.values:
+        cond += "(Admin2 != '%s')&"%row
+    cond = cond[:-1]
+    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
+    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
+    plt.plot(xticks, y, label='Missouri non-MSA: %i'%latest_total[-1],
+             color='C0', linestyle='--')
+
+    # MSAs
+    for area in msa.MSA.unique():
+        cond = ""
+        for row in msa[msa.MSA == area].values:
+            cond += "((Province_State == '%s')&(Admin2 == '%s'))|"\
+                    %(row[1], row[2])
+        cond = cond[:-1]
+
+        y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
+        latest_total = df.query(cond).loc[:, cols].sum(axis=0)
+        plt.plot(xticks, y, label='%s: %i'%(area, latest_total[-1]))
+
+    # St. Louis City + County
+    cond = "((Province_State == 'Missouri')&(Admin2 == 'St. Louis'))|"
+    cond += "((Province_State == 'Missouri')&(Admin2 == 'St. Louis City'))"
+    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
+    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
+    plt.plot(xticks, y, label='St. Louis City + County: %i'%latest_total[-1],
+            linestyle='--', color='C1')
+
+    steps = np.arange(0, xticks.shape[0], 7)
+    plt.xticks(xticks[steps], xlabels[steps], rotation=90)
+    plt.ylabel('%s\n(7-day Moving Average)'%DEFAULTS[data]['ylabel'])
+    plt.title('Missouri Metropolitan Statistical Areas')
+    plt.legend(loc='upper left')
+    plt.tight_layout()
+    plt.savefig('images/mo_daily_%s.png'%data)
+
+    plt.show()
+
 def plot_daily_info(path, msa, data='deaths'):
     
 
