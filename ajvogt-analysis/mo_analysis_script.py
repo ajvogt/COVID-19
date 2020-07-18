@@ -9,23 +9,17 @@ import matplotlib.pyplot as plt
 
 plt.style.use('fivethirtyeight')
 
-DEFAULTS = {
-    'deaths': {
-        'filename': 'time_series_covid19_deaths_US.csv',
-        'ylabel': 'New Daily Deaths'
-    },
-    'cases': {
-        'filename': 'time_series_covid19_confirmed_US.csv',
-        'ylabel': 'New Daily Confirmed Cases'
-    }
-}
+from utils import plot_utils as pu
+
 
 class RegionalAnalysis(object):
     def __init__(self, time_series_path, 
-                 daily_reports_path, stat_area_path):
+                 daily_reports_path, stat_area_path,
+                 results_path):
         self.time_series_path_ = time_series_path
         self.daily_reports_path_ = daily_reports_path
         self.stat_area_path_ = stat_area_path
+        self.results_path_ = results_path
         self.stat_area_map_ = pd.DataFrame()
         self.daily_reports_ = pd.DataFrame()
         self.time_series_deaths_ = pd.DataFrame()
@@ -71,114 +65,6 @@ class RegionalAnalysis(object):
 
         pass
 
-
-def plot_daily_cases(df):
-    # Figure Info
-    plt.figure(figsize=(10, 5))
-
-    # X-axis
-    cols = df.columns[df.columns.str.contains('/20')]
-    xlabels = df.loc[:, cols].columns
-    xticks = np.arange(0, xlabels.shape[0], 1)
-
-    # Missouri
-    cond = "(Province_State == 'Missouri')"
-    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-    plt.plot(xticks, y, label='Missouri: %i'%latest_total[-1])
-
-    cond = "(Province_State == 'Missouri')&"
-    for row in msa.Admin2.values:
-        cond += "(Admin2 != '%s')&"%row
-    cond = cond[:-1]
-    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-    plt.plot(xticks, y, label='Missouri non-MSA: %i'%latest_total[-1],
-             color='C0', linestyle='--')
-
-    # MSAs
-    for area in msa.MSA.unique():
-        cond = ""
-        for row in msa[msa.MSA == area].values:
-            cond += "((Province_State == '%s')&(Admin2 == '%s'))|"\
-                    %(row[1], row[2])
-        cond = cond[:-1]
-
-        y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-        latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-        plt.plot(xticks, y, label='%s: %i'%(area, latest_total[-1]))
-
-    # St. Louis City + County
-    cond = "((Province_State == 'Missouri')&(Admin2 == 'St. Louis'))|"
-    cond += "((Province_State == 'Missouri')&(Admin2 == 'St. Louis City'))"
-    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-    plt.plot(xticks, y, label='St. Louis City + County: %i'%latest_total[-1],
-            linestyle='--', color='C1')
-
-    steps = np.arange(0, xticks.shape[0], 7)
-    plt.xticks(xticks[steps], xlabels[steps], rotation=90)
-    plt.ylabel('%s\n(7-day Moving Average)'%DEFAULTS[data]['ylabel'])
-    plt.title('Missouri Metropolitan Statistical Areas')
-    plt.legend(loc='upper left')
-    plt.tight_layout()
-    plt.savefig('images/mo_daily_%s.png'%data)
-
-    plt.show()
-
-def plot_daily_info(path, msa, data='deaths'):
-    
-
-    df = pd.read_csv(path+DEFAULTS[data]['filename'])
-    cols = df.columns[df.columns.str.contains('/20')]
-    xlabels = df.loc[:, cols].columns
-    xticks = np.arange(0, xlabels.shape[0], 1)
-    plt.figure(figsize=(10, 5))
-
-    # Missouri
-    cond = "(Province_State == 'Missouri')"
-    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-    plt.plot(xticks, y, label='Missouri: %i'%latest_total[-1])
-
-    cond = "(Province_State == 'Missouri')&"
-    for row in msa.Admin2.values:
-        cond += "(Admin2 != '%s')&"%row
-    cond = cond[:-1]
-    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-    plt.plot(xticks, y, label='Missouri non-MSA: %i'%latest_total[-1],
-             color='C0', linestyle='--')
-
-    # MSAs
-    for area in msa.MSA.unique():
-        cond = ""
-        for row in msa[msa.MSA == area].values:
-            cond += "((Province_State == '%s')&(Admin2 == '%s'))|"\
-                    %(row[1], row[2])
-        cond = cond[:-1]
-
-        y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-        latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-        plt.plot(xticks, y, label='%s: %i'%(area, latest_total[-1]))
-
-    # St. Louis City + County
-    cond = "((Province_State == 'Missouri')&(Admin2 == 'St. Louis'))|"
-    cond += "((Province_State == 'Missouri')&(Admin2 == 'St. Louis City'))"
-    y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
-    latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-    plt.plot(xticks, y, label='St. Louis City + County: %i'%latest_total[-1],
-            linestyle='--', color='C1')
-
-    steps = np.arange(0, xticks.shape[0], 7)
-    plt.xticks(xticks[steps], xlabels[steps], rotation=90)
-    plt.ylabel('%s\n(7-day Moving Average)'%DEFAULTS[data]['ylabel'])
-    plt.title('Missouri Metropolitan Statistical Areas')
-    plt.legend(loc='upper left')
-    plt.tight_layout()
-    plt.savefig('images/mo_daily_%s.png'%data)
-
-    plt.show()
 
 def write_markdown(filename, msa):
     """Writing markdown file
@@ -238,29 +124,28 @@ def write_markdown(filename, msa):
 
 
 if __name__ == "__main__":
+    print('===== Running MO COVID-19 Analysis Script =====')
 
+    # set up object
     ra = RegionalAnalysis(
         time_series_path='../csse_covid_19_data/',
         daily_reports_path=None,
-        stat_area_path='data/'
+        stat_area_path='data/',
+        results_path=''
     )
+
+    print('\n=== Pulling Data ===')
+    # pull data
     ra._pull_time_series()
-    import pdb; pdb.set_trace()
-    print('===== Running MO COVID-19 Analysis Script =====')
-    path = '../csse_covid_19_data/csse_covid_19_time_series/'
 
-    print('=== Reading MSA Data ===')
-    msa = pd.read_csv('data/statistical_areas.csv')
-
-    print('=== Pulling and plotting Deaths Data ===')
-    plot_daily_info(path=path,
-                    msa=msa,
-                    data='deaths')
-    
-    print('=== Pulling and plotting Cases Data ===')
-    plot_daily_info(path=path,
-                    msa=msa,
-                    data='cases')
+    print('\n=== Plotting Daily Change Data ===')
+    # plot running average of daily changes
+    pu.plot_daily_data(ra.time_series_cases_,
+                       save_loc='images/mo_daily_cases.png',
+                       title='New Daily Confirmed Cases')
+    pu.plot_daily_data(ra.time_series_deaths_,
+                       save_loc='images/mo_daily_deaths.png',
+                       title='New Daily Deaths')
 
     print('=== Updating Markdown ===')
     write_markdown('missouri_analysis.md', msa)
