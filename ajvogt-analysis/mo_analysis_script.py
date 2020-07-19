@@ -66,7 +66,7 @@ class RegionalAnalysis(object):
         pass
 
 
-def write_markdown(filename, msa):
+def write_markdown(filename, ra):
     """Writing markdown file
     """
     with open(filename) as f:
@@ -79,9 +79,10 @@ def write_markdown(filename, msa):
     md[ind] = 'Updated: %s  '%(date.today().strftime("%m/%d/%Y"))
     
     # msa table
-    start = [x for x in md if '|-' in x][0]
+    header = '## Metropolitan Statistical Area (MSA) Counties'
+    start = [x for x in md if header in x][0]
     ind = md.index(start)
-    md = md[:ind+1]            
+    md = md[:ind+3]            
 
     # write new file
     new_md = ''
@@ -89,33 +90,25 @@ def write_markdown(filename, msa):
         new_md += line +'\n'
     
     # including county info
-    deaths = pd.read_csv(path+DEFAULTS['deaths']['filename'])
-    cases = pd.read_csv(path+DEFAULTS['cases']['filename'])
-    deaths_cols = deaths.columns[deaths.columns.str.contains('/20')]
-    cases_cols = cases.columns[cases.columns.str.contains('/20')]
+    index_cols = ['Province_State', 'Admin2', 'MSA']
+    deaths = ra.time_series_deaths_.set_index(index_cols)
+    cases = ra.time_series_cases_.set_index(index_cols)
+    cases = cases.loc[deaths.index]
+    assert all(deaths.index == cases.index),\
+          'Mismatch in index for deaths and cases'
+    deaths = deaths[deaths.columns[
+        deaths.columns.str.contains('/20')
+    ]]
+    cases = cases[cases.columns[
+        cases.columns.str.contains('/20')
+    ]]
 
-    for row in msa.values:
-        line = '|'
-        for i in row:
-            line += ' %s |'%i
-        
-        cond = "((Province_State == '%s')&(Admin2 == '%s'))"%(row[1], row[2])
-        vals_cases = cases.query(cond)[cases_cols].values[0]
-        line += ' %i |'%vals_cases[-1]
-        vals_deaths = deaths.query(cond)[deaths_cols].values[0]
-        line += ' %i |'%vals_deaths[-1]
-        new_md += line +'\n'
-    
-    cond = (cases.Province_State == 'Missouri')&\
-           (~cases.Admin2.isin(msa.Admin2))&\
-           (~cases.Admin2.isin(['Out of MO', 'Unassigned']))
-    for row in cases[cond].Admin2.values:
-        line = '| Missouri non-MSA | Missouri | %s | '%row
-        cond = "((Province_State == 'Missouri')&(Admin2 == '%s'))"%row
-        vals_cases = cases.query(cond)[cases_cols].values[0]
-        line += ' %i |'%vals_cases[-1]
-        vals_deaths = deaths.query(cond)[deaths_cols].values[0]
-        line += ' %i |'%vals_deaths[-1]
+    for ind in deaths.index:
+        line = '| {} | {} | {} |'.format(
+            ind[2], ind[0], ind[1]
+        )
+        line += ' %i |'%cases.loc[ind].values[-1]
+        line += ' %i |'%deaths.loc[ind].values[-1]
         new_md += line +'\n'
 
     f = open(filename, 'w')
@@ -148,4 +141,4 @@ if __name__ == "__main__":
                        title='New Daily Deaths')
 
     print('=== Updating Markdown ===')
-    write_markdown('missouri_analysis.md', msa)
+    write_markdown('missouri_analysis.md', ra)
