@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 
 from utils import plot_utils as pu
+from utils import markdown_utils as mu
 
 
 class RegionalAnalysis(object):
@@ -141,4 +142,4 @@ if __name__ == "__main__":
                        title='New Daily Deaths')
 
     print('=== Updating Markdown ===')
-    write_markdown('missouri_analysis.md', ra)
+    mu.write_markdown('missouri_analysis.md', ra)
