@@ -141,5 +141,5 @@ if __name__ == "__main__":
                        save_loc='images/mo_daily_deaths.png',
                        title='New Daily Deaths')
 
-    print('=== Updating Markdown ===')
+    print('\n=== Updating Markdown ===')
     mu.write_markdown('missouri_analysis.md', ra)
