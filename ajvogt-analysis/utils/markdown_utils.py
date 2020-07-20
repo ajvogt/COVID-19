@@ -14,13 +14,17 @@ def _county_table(md, deaths, cases):
     new_md = ''
     for line in md:
         new_md += line +'\n'
-
-    for ind in deaths.index:
+    idx = cases.diff(axis=1).rolling(window=7, axis=1).mean()
+    idx = idx.sort_values(by=cases.columns[-1], ascending=False).index
+    for ind in idx:
         line = '| {} | {} | {} |'.format(
             ind[2], ind[0], ind[1]
         )
-        line += ' %i |'%cases.loc[ind].values[-1]
         line += ' %i |'%deaths.loc[ind].values[-1]
+        line += ' %i |'%cases.loc[ind].values[-1]
+        line += ' %i |'%cases.loc[ind].diff().rolling(window=7).mean().values[-1]
+        line += ' %i |'%cases.loc[ind].diff().rolling(window=14).mean().values[-1]
+        line += ' %i |'%cases.loc[ind].diff().rolling(window=30).mean().values[-1]
         new_md += line +'\n'
 
     return new_md

@@ -4,6 +4,18 @@ import matplotlib.pyplot as plt
 
 plt.style.use('fivethirtyeight')
 
+DEFAULTS = {
+    'Missouri': 'k',
+    'St. Louis-Farmington': 'C1',
+    'Cape Girardeau-Sikeston': 'C2',
+    'Springfield': 'C3',
+    'Joplin': 'C4',
+    'Columbia-Jefferson City': 'C5',
+    'Kansas City': 'C0',
+    'St. Joseph': 'tab:pink',
+    'Missouri non-MSA': 'k'
+}
+
 def plot_daily_data(df, save_loc=None,
                     title='New Daily Confirmed Cases'):
     # Figure Info
@@ -19,14 +31,20 @@ def plot_daily_data(df, save_loc=None,
     cond = "(Province_State == 'Missouri')"
     y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
     latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-    plt.plot(xticks, y, label='Missouri')
+    plt.plot(xticks, y, label='Missouri', color='k')
 
     # MSAs
-    for area in df.MSA.unique():
+    for area in [x for x in df.MSA.unique() if 'Unassigned' not in x]:
         cond = "(MSA == '%s')"%area
         y = df.query(cond).loc[:, cols].sum(axis=0).diff().rolling(window=7).mean()
         latest_total = df.query(cond).loc[:, cols].sum(axis=0)
-        plt.plot(xticks, y, label='%s'%area)
+        if area == 'Missouri non-MSA':
+            linestyle = '--'
+        else:
+            linestyle = '-'
+        plt.plot(xticks, y, label='%s'%area,
+                 linestyle=linestyle, 
+                 color=DEFAULTS[area])
 
     # Titles, Legends, & Labels
     plt.xticks(xticks[steps], xlabels[steps], rotation=90)
