@@ -23,6 +23,7 @@ are a custom combination of MSAs and
 
 <a name="msa-counties"></a>
 ## Metropolitan Statistical Area (MSA) Counties
+<!-- county_table start -->
 | MSA | State | County | Total Cases | Total Deaths | Daily New Cases: Last 7-Day Average | Daily New Cases: Last 14-Day Average | Daily New Cases: Last 30-Day Average |
 |-----|-------|--------|---|---|---|---|---|
 | St. Louis-Farmington | Missouri | St. Louis | 610 | 8990 | 168 | 150 | 107 |
@@ -158,3 +159,4 @@ are a custom combination of MSAs and
 | Missouri non-MSA | Missouri | Clark | 0 | 2 | 0 | 0 | 0 |
 | Missouri non-MSA | Missouri | Atchison | 0 | 6 | 0 | 0 | 0 |
 | Unassigned/Out of MO | Missouri | Unassigned | 0 | 0 | 0 | 0 | 0 |
+<!-- county_table end -->
