@@ -3,7 +3,7 @@ Author: Adam J. Vogt
 Updated: 07/20/2020  
 Source: [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)  
 Source Code: `/ajvogt-analysis/mo_analysis_script.py`  
-Release Notes: [release_notes.md](https://github.com/ajvogt/COVID-19/blob/master/ajvogt-analysis/release_notes.md)
+[Release Notes found below](#release-notes)
 
 This analysis shows the Johns Hopkins University COVID-19 data broken down by 
 [Metropolitan Statistcal Area](https://en.wikipedia.org/wiki/Metropolitan_statistical_area) (MSA)
@@ -21,9 +21,30 @@ are a custom combination of MSAs and
 ## Missouri New Daily Confirmed Cases by Metropolitan Statistcal Areas
 ![](images/mo_daily_cases.png)
 
+## Missouri Metropolitan Statistical Area Totals
+<!-- msa_table start -->
+| MSA | Total Deaths | Total Cases | Daily New Cases: Last 7-Day Average | Daily New Cases: Last 14-Day Average | Daily New Cases: Last 30-Day Average |
+|-----|-------|--------|---|---|---|
+| St. Louis-Farmington | 1149 | 20457 | 445 | 379 | 263 |
+| Kansas City | 308 | 15694 | 369 | 335 | 265 |
+| Missouri non-MSA | 64 | 5225 | 147 | 120 | 101 |
+| Springfield | 12 | 932 | 47 | 34 | 21 |
+| Joplin | 19 | 1890 | 47 | 47 | 52 |
+| Columbia-Jefferson City | 7 | 1117 | 38 | 33 | 23 |
+| Cape Girardeau-Sikeston | 17 | 745 | 23 | 22 | 14 |
+| St. Joseph | 8 | 1090 | 7 | 7 | 7 |
+<!-- msa_table end -->
+
+## STL-Farmington MSA New Daily Deaths by County
+![](images/stl_daily_deaths.png)
+
+## STL-Farmington MSA New Daily Confirmed Cases by County
+![](images/stl_daily_cases.png)
+
 <a name="msa-counties"></a>
 ## Metropolitan Statistical Area (MSA) Counties
-| MSA | State | County | Total Cases | Total Deaths | Daily New Cases: Last 7-Day Average | Daily New Cases: Last 14-Day Average | Daily New Cases: Last 30-Day Average |
+<!-- county_table start -->
+| MSA | State | County | Total Deaths | Total Cases | Daily New Cases: Last 7-Day Average | Daily New Cases: Last 14-Day Average | Daily New Cases: Last 30-Day Average |
 |-----|-------|--------|---|---|---|---|---|
 | St. Louis-Farmington | Missouri | St. Louis | 610 | 8990 | 168 | 150 | 107 |
 | Kansas City | Kansas | Johnson | 96 | 3744 | 111 | 109 | 84 |
@@ -158,3 +179,49 @@ are a custom combination of MSAs and
 | Missouri non-MSA | Missouri | Clark | 0 | 2 | 0 | 0 | 0 |
 | Missouri non-MSA | Missouri | Atchison | 0 | 6 | 0 | 0 | 0 |
 | Unassigned/Out of MO | Missouri | Unassigned | 0 | 0 | 0 | 0 | 0 |
+<!-- county_table end -->
+
+<a name="release-notes"></a>
+## Release Notes
+
+### Release Notes
+* 7/20/2020:
+  * update table insertion code
+  * fix cases vs. deaths total header bug
+  * include MSA totals table
+  * added STL-Farmington County-level Deaths & Cases plots
+  * including release notes in missouri_analysis.md
+* 7/19/2020: 
+  * code refactor
+  * updating color scheme for plots
+  * updating county numbers to table to include
+  latest new daily case average numbers and
+  sorting by last 7-day average
+* 6/19/2020: Added description of MSAs & CSAs
+* 6/16/2020: Including individual county totals (only) in analysis md table
+* 6/11/2020:
+  * Updated MSA definitions
+  * Including table of individual county case counts
+* 6/7/2020: Creating markdown & script
+  * Including list of county-MSA/CSA associations to markdown
+  * Including cumulative totals in MSA/CSA plots
+* 5/30/2020: including plots of cumulative cases/deaths in jupyter notebook
+* 5/17/2020: Initial analysis jupyter notebook created
+* 4/4/2020: Cloned JHU CSSE Repository and set up development environment
+
+### To-Do (updated 7/20/2020)
+
+#### Analysis Page
+- [ ] Update description to accurately reflect CSA vs. MSA
+- [x] Make table for CSA info
+- [x] Include 7, 14, & 30 day changes for each county
+- [ ] Plot top CSAs (for latest daily case change) with testing data
+- [x] Analysis breakdown of St. Louis-Farmington counties
+- [x] Include release notes and to-do list
+- [ ] ~~Update color scheme~~, plot markers, and line thickness
+- [ ] Include table of contents
+
+#### Analysis Script
+- [x] Simplify data ingestion and summarization functionality
+- [x] Simplify plotting functionality
+- [x] Include ability to update markdown with table between markdown sections
