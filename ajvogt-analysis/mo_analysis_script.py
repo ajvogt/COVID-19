@@ -140,6 +140,14 @@ if __name__ == "__main__":
     pu.plot_daily_data(ra.time_series_deaths_,
                        save_loc='images/mo_daily_deaths.png',
                        title='New Daily Deaths')
+    pu.plot_msa_breakdown_data(ra.time_series_cases_,
+                               msa='St. Louis-Farmington',
+                               save_loc='images/stl_daily_cases.png',
+                               title='New Daily Confirmed Cases')
+    pu.plot_msa_breakdown_data(ra.time_series_deaths_,
+                               msa='St. Louis-Farmington',
+                               save_loc='images/stl_daily_deaths.png',
+                               title='New Daily Deaths')
 
     print('\n=== Updating Markdown ===')
     mu.write_markdown('missouri_analysis.md', ra)

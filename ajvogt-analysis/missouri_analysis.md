@@ -35,6 +35,12 @@ are a custom combination of MSAs and
 | St. Joseph | 8 | 1090 | 7 | 7 | 7 |
 <!-- msa_table end -->
 
+## STL-Farmington MSA New Daily Deaths by County
+![](images/stl_daily_deaths.png)
+
+## STL-Farmington MSA New Daily Confirmed Cases by County
+![](images/stl_daily_cases.png)
+
 <a name="msa-counties"></a>
 ## Metropolitan Statistical Area (MSA) Counties
 <!-- county_table start -->
@@ -183,6 +189,7 @@ are a custom combination of MSAs and
   * update table insertion code
   * fix cases vs. deaths total header bug
   * include MSA totals table
+  * added STL-Farmington County-level Deaths & Cases plots
   * including release notes in missouri_analysis.md
 * 7/19/2020: 
   * code refactor
@@ -202,16 +209,17 @@ are a custom combination of MSAs and
 * 5/17/2020: Initial analysis jupyter notebook created
 * 4/4/2020: Cloned JHU CSSE Repository and set up development environment
 
-### To-Do (updated 6/27/2020)
+### To-Do (updated 7/20/2020)
 
 #### Analysis Page
 - [ ] Update description to accurately reflect CSA vs. MSA
 - [x] Make table for CSA info
 - [x] Include 7, 14, & 30 day changes for each county
 - [ ] Plot top CSAs (for latest daily case change) with testing data
-- [ ] Analysis breakdown of St. Louis-Farmington counties
+- [x] Analysis breakdown of St. Louis-Farmington counties
 - [x] Include release notes and to-do list
 - [ ] ~~Update color scheme~~, plot markers, and line thickness
+- [ ] Include table of contents
 
 #### Analysis Script
 - [x] Simplify data ingestion and summarization functionality
