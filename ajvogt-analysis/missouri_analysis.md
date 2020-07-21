@@ -21,10 +21,24 @@ are a custom combination of MSAs and
 ## Missouri New Daily Confirmed Cases by Metropolitan Statistcal Areas
 ![](images/mo_daily_cases.png)
 
+## Missouri Metropolitan Statistical Area Totals
+<!-- msa_table start -->
+| MSA | Total Deaths | Total Cases | Daily New Cases: Last 7-Day Average | Daily New Cases: Last 14-Day Average | Daily New Cases: Last 30-Day Average |
+|-----|-------|--------|---|---|---|
+| St. Louis-Farmington | 1149 | 20457 | 445 | 379 | 263 |
+| Kansas City | 308 | 15694 | 369 | 335 | 265 |
+| Missouri non-MSA | 64 | 5225 | 147 | 120 | 101 |
+| Springfield | 12 | 932 | 47 | 34 | 21 |
+| Joplin | 19 | 1890 | 47 | 47 | 52 |
+| Columbia-Jefferson City | 7 | 1117 | 38 | 33 | 23 |
+| Cape Girardeau-Sikeston | 17 | 745 | 23 | 22 | 14 |
+| St. Joseph | 8 | 1090 | 7 | 7 | 7 |
+<!-- msa_table end -->
+
 <a name="msa-counties"></a>
 ## Metropolitan Statistical Area (MSA) Counties
 <!-- county_table start -->
-| MSA | State | County | Total Cases | Total Deaths | Daily New Cases: Last 7-Day Average | Daily New Cases: Last 14-Day Average | Daily New Cases: Last 30-Day Average |
+| MSA | State | County | Total Deaths | Total Cases | Daily New Cases: Last 7-Day Average | Daily New Cases: Last 14-Day Average | Daily New Cases: Last 30-Day Average |
 |-----|-------|--------|---|---|---|---|---|
 | St. Louis-Farmington | Missouri | St. Louis | 610 | 8990 | 168 | 150 | 107 |
 | Kansas City | Kansas | Johnson | 96 | 3744 | 111 | 109 | 84 |
