@@ -3,7 +3,7 @@ Author: Adam J. Vogt
 Updated: 07/20/2020  
 Source: [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)  
 Source Code: `/ajvogt-analysis/mo_analysis_script.py`  
-Release Notes: [release_notes.md](https://github.com/ajvogt/COVID-19/blob/master/ajvogt-analysis/release_notes.md)
+[Release Notes found below](#release-notes)
 
 This analysis shows the Johns Hopkins University COVID-19 data broken down by 
 [Metropolitan Statistcal Area](https://en.wikipedia.org/wiki/Metropolitan_statistical_area) (MSA)
@@ -174,3 +174,46 @@ are a custom combination of MSAs and
 | Missouri non-MSA | Missouri | Atchison | 0 | 6 | 0 | 0 | 0 |
 | Unassigned/Out of MO | Missouri | Unassigned | 0 | 0 | 0 | 0 | 0 |
 <!-- county_table end -->
+
+<a name="release-notes"></a>
+## Release Notes
+
+### Release Notes
+* 7/20/2020:
+  * update table insertion code
+  * fix cases vs. deaths total header bug
+  * include MSA totals table
+  * including release notes in missouri_analysis.md
+* 7/19/2020: 
+  * code refactor
+  * updating color scheme for plots
+  * updating county numbers to table to include
+  latest new daily case average numbers and
+  sorting by last 7-day average
+* 6/19/2020: Added description of MSAs & CSAs
+* 6/16/2020: Including individual county totals (only) in analysis md table
+* 6/11/2020:
+  * Updated MSA definitions
+  * Including table of individual county case counts
+* 6/7/2020: Creating markdown & script
+  * Including list of county-MSA/CSA associations to markdown
+  * Including cumulative totals in MSA/CSA plots
+* 5/30/2020: including plots of cumulative cases/deaths in jupyter notebook
+* 5/17/2020: Initial analysis jupyter notebook created
+* 4/4/2020: Cloned JHU CSSE Repository and set up development environment
+
+### To-Do (updated 6/27/2020)
+
+#### Analysis Page
+- [ ] Update description to accurately reflect CSA vs. MSA
+- [x] Make table for CSA info
+- [x] Include 7, 14, & 30 day changes for each county
+- [ ] Plot top CSAs (for latest daily case change) with testing data
+- [ ] Analysis breakdown of St. Louis-Farmington counties
+- [x] Include release notes and to-do list
+- [ ] ~~Update color scheme~~, plot markers, and line thickness
+
+#### Analysis Script
+- [x] Simplify data ingestion and summarization functionality
+- [x] Simplify plotting functionality
+- [x] Include ability to update markdown with table between markdown sections
