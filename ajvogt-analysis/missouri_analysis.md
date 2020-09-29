@@ -1,6 +1,6 @@
 # COVID-19 Missouri Statistics & Regional Breakdowns
 Author: Adam J. Vogt  
-Updated: 09/28/2020  
+Updated: 09/29/2020  
 Source: [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)  
 Source Code: `/ajvogt-analysis/mo_analysis_script.py`  
 [Release Notes found below](#release-notes)
