@@ -22,7 +22,7 @@ def plot_daily_data(df, save_loc=None,
     plt.figure(figsize=(10, 5))
 
     # X-axis
-    cols = df.columns[df.columns.str.contains('/20')]
+    cols = df.columns[df.columns.str.contains('/2')]
     xlabels = df.loc[:, cols].columns
     xticks = np.arange(0, xlabels.shape[0], 1)
     steps = np.arange(0, xticks.shape[0], 7)
@@ -62,7 +62,7 @@ def plot_msa_breakdown_data(df, save_loc=None,
     plt.figure(figsize=(10, 5))
 
     # X-axis
-    cols = df.columns[df.columns.str.contains('/20')]
+    cols = df.columns[df.columns.str.contains('/2')]
     xlabels = df.loc[:, cols].columns
     xticks = np.arange(0, xlabels.shape[0], 1)
     steps = np.arange(0, xticks.shape[0], 7)
