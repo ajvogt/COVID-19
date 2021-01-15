@@ -79,10 +79,10 @@ def write_markdown(filename, ra):
     assert all(deaths.index == cases.index),\
           'Mismatch in index for deaths and cases'
     deaths = deaths[deaths.columns[
-        deaths.columns.str.contains('/20')
+        deaths.columns.str.contains('/2')
     ]]
     cases = cases[cases.columns[
-        cases.columns.str.contains('/20')
+        cases.columns.str.contains('/2')
     ]]
 
     # writing msa table
