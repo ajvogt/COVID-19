@@ -101,3 +101,49 @@ def plot_msa_breakdown_data(df, save_loc=None,
     if save_loc is not None:
         plt.savefig(save_loc)
     plt.show()
+
+
+def plot_cumulative_deaths(df, save_loc=None,
+                           title='Cumulative Deaths'):
+    # Figure Info
+    plt.figure(figsize=(10, 5))
+
+    # X-axis
+    cols = df.columns[df.columns.str.contains('/2')]
+    xlabels = df.loc[:, cols].columns
+    xticks = np.arange(0, xlabels.shape[0], 1)
+    steps = np.arange(0, xticks.shape[0], 7)
+
+    # Missouri
+    cond = "(Province_State == 'Missouri')"
+    y = df.query(cond).loc[:, cols].sum(axis=0)
+    y = y / df.query(cond).loc[:, 'Population'].sum(axis=0) * 100000
+    plt.plot(xticks, y, label='Missouri', color='k')
+
+    # MSAs
+    for area in [x for x in df.MSA.unique() if 'Unassigned' not in x]:
+        cond = "(MSA == '%s')"%area
+        y = df.query(cond).loc[:, cols].sum(axis=0)
+        y = y / df.query(cond).loc[:, 'Population'].sum(axis=0) * 100000
+        if area == 'Missouri non-MSA':
+            linestyle = '--'
+        else:
+            linestyle = '-'
+        plt.plot(xticks, y, label='%s'%area,
+                 linestyle=linestyle, 
+                 color=DEFAULTS[area])
+
+    # Titles, Legends, & Labels
+    plt.xticks(xticks[steps], xlabels[steps], rotation=90)
+    plt.ylabel(title+'\n(Per 100000 people)')
+    plt.title('Missouri Metropolitan Statistical Areas')
+    plt.legend(loc='upper left')
+
+    # Annotations
+    plt.axhline(y=50, xmin=0, xmax=xticks[-1],
+                color='k', linewidth=2, linestyle='--')
+
+    plt.tight_layout()
+    if save_loc is not None:
+        plt.savefig(save_loc)
+    plt.show()
