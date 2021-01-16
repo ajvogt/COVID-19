@@ -28,7 +28,9 @@ class RegionalAnalysis(object):
         self.time_series_files_ = {
             'deaths': 'csse_covid_19_time_series/time_series_covid19_deaths_US.csv',
             'cases': 'csse_covid_19_time_series/time_series_covid19_confirmed_US.csv'
-        }
+        },
+        self.population_data_path_ = population_data_path,
+        self.population_data_ = pd.DataFrame()
 
     def _pull_stat_area_map(self):
         self.stat_area_map_ = pd.read_csv(self.stat_area_path_+'statistical_areas.csv')
@@ -59,8 +61,22 @@ class RegionalAnalysis(object):
                 (df.MSA.isnull()),
                 'MSA'
             ] = 'Missouri non-MSA'
+            df = self._join_population_data(df)
             attr = [x for x in dir(self) if k in x][0]
             self.__dict__[attr] = df
+    
+    def _pull_population_data(self):
+        self.population_data_ = pd.read_csv(self.population_data_path)
+    
+    def _join_population_data(self, df):
+        keys = ['Admin2', 'Province_State']
+        columns = keys + ['Population']
+        df = df.join(
+            self.population_data_[columns].set_index(keys),
+            how='left', on=keys
+        )
+
+        return df
 
     def _pull_daily_report_data(self):
 
@@ -81,7 +97,7 @@ if __name__ == "__main__":
     print('\n=== Pulling Data ===')
     # pull data
     ra._pull_time_series()
-
+    import pdb; pdb.set_trace()
     print('\n=== Plotting Daily Change Data ===')
     # plot running average of daily changes
     pu.plot_daily_data(ra.time_series_cases_,
