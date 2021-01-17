@@ -14,12 +14,14 @@ can be found here.  The clusters used in the charts and tables below
 are a custom combination of MSAs and 
 [Combined Statistical Areas](https://en.wikipedia.org/wiki/Combined_statistical_area) (CSA).
 
+## Missouri New Daily Confirmed Cases by Metropolitan Statistcal Areas
+![](images/mo_daily_cases.png)
 
 ## Missouri New Daily Deaths by Metropolitan Statistcal Areas
 ![](images/mo_daily_deaths.png)
 
-## Missouri New Daily Confirmed Cases by Metropolitan Statistcal Areas
-![](images/mo_daily_cases.png)
+## Missouri Cumulative Deaths by Metropolitan Statistcal Areas
+![](images/mo_cumulative_deaths.png)
 
 ## Missouri Metropolitan Statistical Area Totals
 <!-- msa_table start -->
@@ -35,11 +37,14 @@ are a custom combination of MSAs and
 | St. Joseph | 160 | 9419 | 42 | 48 | 48 |
 <!-- msa_table end -->
 
+## STL-Farmington MSA New Daily Confirmed Cases by County
+![](images/stl_daily_cases.png)
+
 ## STL-Farmington MSA New Daily Deaths by County
 ![](images/stl_daily_deaths.png)
 
-## STL-Farmington MSA New Daily Confirmed Cases by County
-![](images/stl_daily_cases.png)
+## STL-Farmington MSA Cumulative Deaths by County
+![](images/stl_cumulative_deaths.png)
 
 <a name="msa-counties"></a>
 ## Metropolitan Statistical Area (MSA) Counties
@@ -185,6 +190,7 @@ are a custom combination of MSAs and
 ## Release Notes
 
 ### Release Notes
+* 1/17/2021: including cumulative deaths plots
 * 1/4/2021: small fix for including 2021 data
 * 7/20/2020:
   * update table insertion code

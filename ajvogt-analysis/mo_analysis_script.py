@@ -126,8 +126,10 @@ if __name__ == "__main__":
     
     # new plots
     pu.plot_cumulative_deaths(ra.time_series_deaths_,
-                             title='Cumulative Deaths')
+                              save_loc='images/mo_cumulative_deaths.png',
+                              title='Cumulative Deaths')
     pu.plot_cumulative_deaths_breakdown(ra.time_series_deaths_,
+                                        save_loc='images/stl_cumulative_deaths.png',
                                         msa='St. Louis-Farmington',
                                         title='Cumulative Deaths')
 
