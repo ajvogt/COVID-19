@@ -109,7 +109,6 @@ if __name__ == "__main__":
 
     print('\n=== Plotting Daily Change Data ===')
     # plot running average of daily changes
-    """
     pu.plot_daily_data(ra.time_series_cases_,
                        save_loc='images/mo_daily_cases.png',
                        title='New Daily Confirmed Cases')
@@ -124,11 +123,13 @@ if __name__ == "__main__":
                                msa='St. Louis-Farmington',
                                save_loc='images/stl_daily_deaths.png',
                                title='New Daily Deaths')
-    """
     
     # new plots
     pu.plot_cumulative_deaths(ra.time_series_deaths_,
                              title='Cumulative Deaths')
+    pu.plot_cumulative_deaths_breakdown(ra.time_series_deaths_,
+                                        msa='St. Louis-Farmington',
+                                        title='Cumulative Deaths')
 
     print('\n=== Updating Markdown ===')
     mu.write_markdown('missouri_analysis.md', ra)
