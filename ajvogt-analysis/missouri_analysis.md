@@ -218,10 +218,11 @@ County populations are pulled from this
 * 5/17/2020: Initial analysis jupyter notebook created
 * 4/4/2020: Cloned JHU CSSE Repository and set up development environment
 
-### To-Do (updated 7/20/2020)
+### To-Do (updated 1/17/2021)
+- [ ] Verify county population data
 
 #### Analysis Page
-- [ ] Update description to accurately reflect CSA vs. MSA
+- [x] Update description to accurately reflect CSA vs. MSA
 - [x] Make table for CSA info
 - [x] Include 7, 14, & 30 day changes for each county
 - [ ] Plot top CSAs (for latest daily case change) with testing data
