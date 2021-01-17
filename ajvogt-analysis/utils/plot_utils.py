@@ -101,3 +101,123 @@ def plot_msa_breakdown_data(df, save_loc=None,
     if save_loc is not None:
         plt.savefig(save_loc)
     plt.show()
+
+
+def plot_cumulative_deaths(df, save_loc=None,
+                           title='Cumulative Deaths'):
+    # Figure Info
+    plt.figure(figsize=(10, 5))
+
+    # X-axis
+    cols = df.columns[df.columns.str.contains('/2')]
+    xlabels = df.loc[:, cols].columns
+    xticks = np.arange(0, xlabels.shape[0], 1)
+    steps = np.arange(0, xticks.shape[0], 7)
+
+    # Missouri
+    cond = "(Province_State == 'Missouri')"
+    y = df.query(cond).loc[:, cols].sum(axis=0)
+    y = y / df.query(cond).loc[:, 'Population'].sum(axis=0) * 100000
+    plt.plot(xticks, y, label='Missouri', color='k')
+
+    # MSAs
+    for area in [x for x in df.MSA.unique() if 'Unassigned' not in x]:
+        cond = "(MSA == '%s')"%area
+        y = df.query(cond).loc[:, cols].sum(axis=0)
+        y = y / df.query(cond).loc[:, 'Population'].sum(axis=0) * 100000
+        if area == 'Missouri non-MSA':
+            linestyle = '--'
+        else:
+            linestyle = '-'
+        plt.plot(xticks, y, label='%s'%area,
+                 linestyle=linestyle, 
+                 color=DEFAULTS[area])
+
+    # Titles, Legends, & Labels
+    plt.xticks(xticks[steps], xlabels[steps], rotation=90)
+    plt.ylabel(title+'\n(Per 100000 people)')
+    plt.title('Missouri Metropolitan Statistical Areas')
+    plt.legend(loc='upper left')
+
+    # Annotations
+    plt.hlines(y=50, xmin=xticks[60], xmax=xticks[-1],
+                color='k', linewidth=2, linestyle='--')
+    plt.annotate(s='1 in 2000', xy=(xticks[-1]/2-5, 50+2),
+                 ha='center')
+    plt.hlines(y=100, xmin=xticks[60], xmax=xticks[-1],
+                color='k', linewidth=2, linestyle='--')
+    plt.annotate(s='1 in 1000', xy=(xticks[-1]/2-5, 100+2),
+                 ha='center')
+    plt.hlines(y=200, xmin=xticks[60], xmax=xticks[-1],
+                color='r', linewidth=2, linestyle='--')
+    plt.annotate(s='1 in 500', xy=(xticks[-1]/2-5, 200+2),
+                 ha='center')
+
+    plt.tight_layout()
+    if save_loc is not None:
+        plt.savefig(save_loc)
+    plt.show()
+
+
+def plot_cumulative_deaths_breakdown(df, save_loc=None,
+                                     msa='St. Louis-Farmington',
+                                     title='Cumulative Deaths'):
+    # Figure Info
+    plt.figure(figsize=(10, 5))
+
+    # X-axis
+    cols = df.columns[df.columns.str.contains('/2')]
+    xlabels = df.loc[:, cols].columns
+    xticks = np.arange(0, xlabels.shape[0], 1)
+    steps = np.arange(0, xticks.shape[0], 7)
+
+    # MSA
+    df = df[df.MSA == msa]
+    y = df.loc[:, cols].sum(axis=0)
+    y = y / df.loc[:, 'Population'].sum(axis=0) * 100000
+    plt.plot(xticks, y, label=msa, color='k')
+
+    # Counties
+    top_totals = df.sort_values(by=cols[-1], ascending=False).Admin2.values[:7]
+    top_counties = list(top_totals)
+    top_counties = df[df.Admin2.isin(top_counties)]
+    top_counties = top_counties.sort_values(by=cols[-1], ascending=False).Admin2.values[:7]
+    bottom_counties = list(df[~df.Admin2.isin(top_counties)].Admin2.values)
+
+    # Top Counties
+    for county in top_counties:
+        cond = "(Admin2 == '%s')"%county
+        y = df.query(cond).loc[:, cols].sum(axis=0)
+        y = y / df.query(cond).loc[:, 'Population'].sum(axis=0) * 100000
+        plt.plot(xticks, y, label='%s'%county)
+
+    # Remaining Counties
+    cond = df.Admin2.isin(bottom_counties)
+    y = df[cond].loc[:, cols].sum(axis=0)
+    y = y / df[cond].loc[:, 'Population'].sum(axis=0) * 100000
+    plt.plot(xticks, y, label='Other Counties', color='k', linestyle='--')
+
+    # Titles, Legends, & Labels
+    plt.xticks(xticks[steps], xlabels[steps], rotation=90)
+    plt.ylabel(title+'\n(Per 100000 people)')
+    plt.title('{} Counties'.format(msa))
+    plt.legend(loc='upper left')
+
+    # Annotations
+    plt.hlines(y=50, xmin=xticks[60], xmax=xticks[-1],
+                color='k', linewidth=2, linestyle='--')
+    plt.annotate(s='1 in 2000', xy=(xticks[-1]/2-5, 50+2),
+                 ha='center')
+    plt.hlines(y=100, xmin=xticks[60], xmax=xticks[-1],
+                color='k', linewidth=2, linestyle='--')
+    plt.annotate(s='1 in 1000', xy=(xticks[-1]/2-5, 100+2),
+                 ha='center')
+    plt.hlines(y=200, xmin=xticks[60], xmax=xticks[-1],
+                color='r', linewidth=2, linestyle='--')
+    plt.annotate(s='1 in 500', xy=(xticks[-1]/2-5, 200+2),
+                 ha='center')
+
+    plt.tight_layout()
+    if save_loc is not None:
+        plt.savefig(save_loc)
+    plt.show()
