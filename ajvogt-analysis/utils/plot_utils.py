@@ -142,6 +142,7 @@ def plot_cumulative_deaths(df, save_loc=None,
     # Annotations
     plt.axhline(y=50, xmin=0, xmax=xticks[-1],
                 color='k', linewidth=2, linestyle='--')
+    plt.annotate(s='1 in 2000', xy=(xticks[-1]/2, 50))
 
     plt.tight_layout()
     if save_loc is not None:
