@@ -12,7 +12,9 @@ This analysis shows the Johns Hopkins University COVID-19 data broken down by
 below. The [detailed map of MSAs](https://www2.census.gov/geo/maps/metroarea/us_wall/Sep2018/CBSA_WallMap_Sep2018.pdf) 
 can be found here.  The clusters used in the charts and tables below 
 are a custom combination of MSAs and 
-[Combined Statistical Areas](https://en.wikipedia.org/wiki/Combined_statistical_area) (CSA).
+[Combined Statistical Areas](https://en.wikipedia.org/wiki/Combined_statistical_area) (CSA). 
+County populations are pulled from this 
+[JHU CSSE repository file](https://github.com/ajvogt/COVID-19/blob/master/csse_covid_19_data/UID_ISO_FIPS_LookUp_Table.csv).
 
 ## Missouri New Daily Confirmed Cases by Metropolitan Statistcal Areas
 ![](images/mo_daily_cases.png)
