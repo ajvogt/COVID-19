@@ -12,14 +12,18 @@ This analysis shows the Johns Hopkins University COVID-19 data broken down by
 below. The [detailed map of MSAs](https://www2.census.gov/geo/maps/metroarea/us_wall/Sep2018/CBSA_WallMap_Sep2018.pdf) 
 can be found here.  The clusters used in the charts and tables below 
 are a custom combination of MSAs and 
-[Combined Statistical Areas](https://en.wikipedia.org/wiki/Combined_statistical_area) (CSA).
+[Combined Statistical Areas](https://en.wikipedia.org/wiki/Combined_statistical_area) (CSA). 
+County populations are pulled from this 
+[JHU CSSE repository file](https://github.com/ajvogt/COVID-19/blob/master/csse_covid_19_data/UID_ISO_FIPS_LookUp_Table.csv).
 
+## Missouri New Daily Confirmed Cases by Metropolitan Statistcal Areas
+![](images/mo_daily_cases.png)
 
 ## Missouri New Daily Deaths by Metropolitan Statistcal Areas
 ![](images/mo_daily_deaths.png)
 
-## Missouri New Daily Confirmed Cases by Metropolitan Statistcal Areas
-![](images/mo_daily_cases.png)
+## Missouri Cumulative Deaths by Metropolitan Statistcal Areas
+![](images/mo_cumulative_deaths.png)
 
 ## Missouri Metropolitan Statistical Area Totals
 <!-- msa_table start -->
@@ -35,11 +39,14 @@ are a custom combination of MSAs and
 | St. Joseph | 160 | 9419 | 42 | 48 | 48 |
 <!-- msa_table end -->
 
+## STL-Farmington MSA New Daily Confirmed Cases by County
+![](images/stl_daily_cases.png)
+
 ## STL-Farmington MSA New Daily Deaths by County
 ![](images/stl_daily_deaths.png)
 
-## STL-Farmington MSA New Daily Confirmed Cases by County
-![](images/stl_daily_cases.png)
+## STL-Farmington MSA Cumulative Deaths by County
+![](images/stl_cumulative_deaths.png)
 
 <a name="msa-counties"></a>
 ## Metropolitan Statistical Area (MSA) Counties
@@ -185,6 +192,7 @@ are a custom combination of MSAs and
 ## Release Notes
 
 ### Release Notes
+* 1/17/2021: including cumulative deaths plots
 * 1/4/2021: small fix for including 2021 data
 * 7/20/2020:
   * update table insertion code
@@ -210,10 +218,11 @@ are a custom combination of MSAs and
 * 5/17/2020: Initial analysis jupyter notebook created
 * 4/4/2020: Cloned JHU CSSE Repository and set up development environment
 
-### To-Do (updated 7/20/2020)
+### To-Do (updated 1/17/2021)
+- [ ] Verify county population data
 
 #### Analysis Page
-- [ ] Update description to accurately reflect CSA vs. MSA
+- [x] Update description to accurately reflect CSA vs. MSA
 - [x] Make table for CSA info
 - [x] Include 7, 14, & 30 day changes for each county
 - [ ] Plot top CSAs (for latest daily case change) with testing data

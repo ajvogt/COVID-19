@@ -16,7 +16,7 @@ from utils import markdown_utils as mu
 class RegionalAnalysis(object):
     def __init__(self, time_series_path, 
                  daily_reports_path, stat_area_path,
-                 results_path):
+                 results_path, population_data_path):
         self.time_series_path_ = time_series_path
         self.daily_reports_path_ = daily_reports_path
         self.stat_area_path_ = stat_area_path
@@ -29,6 +29,8 @@ class RegionalAnalysis(object):
             'deaths': 'csse_covid_19_time_series/time_series_covid19_deaths_US.csv',
             'cases': 'csse_covid_19_time_series/time_series_covid19_confirmed_US.csv'
         }
+        self.population_data_path_ = population_data_path
+        self.population_data_ = pd.DataFrame()
 
     def _pull_stat_area_map(self):
         self.stat_area_map_ = pd.read_csv(self.stat_area_path_+'statistical_areas.csv')
@@ -59,8 +61,30 @@ class RegionalAnalysis(object):
                 (df.MSA.isnull()),
                 'MSA'
             ] = 'Missouri non-MSA'
+
+            if 'Population' not in df.columns:
+                df = self._join_population_data(df)
+
             attr = [x for x in dir(self) if k in x][0]
             self.__dict__[attr] = df
+    
+    def _pull_population_data(self):
+        self.population_data_ = pd.read_csv(self.population_data_path_)
+    
+    def _join_population_data(self, df):
+        keys = ['UID']
+        columns = keys + ['Population']
+
+        if self.population_data_.empty:
+            self._pull_population_data()
+
+        df = df.join(
+            self.population_data_.copy()[columns].set_index(keys),
+            how='left', on=keys
+        )
+        df.loc[df.Population.isnull(), 'Population'] = 0
+
+        return df
 
     def _pull_daily_report_data(self):
 
@@ -75,7 +99,8 @@ if __name__ == "__main__":
         time_series_path='../csse_covid_19_data/',
         daily_reports_path=None,
         stat_area_path='data/',
-        results_path=''
+        results_path='',
+        population_data_path='../csse_covid_19_data/UID_ISO_FIPS_LookUp_Table.csv'
     )
 
     print('\n=== Pulling Data ===')
@@ -98,6 +123,15 @@ if __name__ == "__main__":
                                msa='St. Louis-Farmington',
                                save_loc='images/stl_daily_deaths.png',
                                title='New Daily Deaths')
+    
+    # new plots
+    pu.plot_cumulative_deaths(ra.time_series_deaths_,
+                              save_loc='images/mo_cumulative_deaths.png',
+                              title='Cumulative Deaths')
+    pu.plot_cumulative_deaths_breakdown(ra.time_series_deaths_,
+                                        save_loc='images/stl_cumulative_deaths.png',
+                                        msa='St. Louis-Farmington',
+                                        title='Cumulative Deaths')
 
     print('\n=== Updating Markdown ===')
     mu.write_markdown('missouri_analysis.md', ra)
