@@ -1,6 +1,6 @@
 # COVID-19 Missouri Statistics & Regional Breakdowns
 Author: Adam J. Vogt  
-Updated: 03/02/2021  
+Updated: 03/04/2021  
 Source: [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)  
 Source Code: `/ajvogt-analysis/mo_analysis_script.py`  
 [Release Notes found below](#release-notes)
@@ -29,14 +29,14 @@ County populations are pulled from this
 <!-- msa_table start -->
 | MSA | Total Deaths | Total Cases | Daily New Cases: Last 7-Day Average | Daily New Cases: Last 14-Day Average | Daily New Cases: Last 30-Day Average |
 |-----|-------|--------|---|---|---|
-| St. Louis-Farmington | 4574 | 256731 | 350 | 362 | 486 |
-| Kansas City | 2481 | 176168 | 226 | 319 | 366 |
-| Missouri non-MSA | 2009 | 110060 | 95 | 94 | 134 |
-| Springfield | 613 | 36289 | 37 | 37 | 54 |
-| Columbia-Jefferson City | 310 | 34476 | 23 | 27 | 41 |
-| Joplin | 285 | 16304 | 16 | 15 | 25 |
-| Cape Girardeau-Sikeston | 221 | 12852 | 10 | 11 | 17 |
-| St. Joseph | 201 | 10103 | 5 | 7 | 10 |
+| St. Louis-Farmington | 4663 | 257361 | 335 | 354 | 471 |
+| Kansas City | 2531 | 176591 | 192 | 296 | 347 |
+| Missouri non-MSA | 2058 | 110170 | 80 | 89 | 125 |
+| Springfield | 624 | 36365 | 36 | 37 | 52 |
+| Columbia-Jefferson City | 324 | 34506 | 19 | 23 | 37 |
+| Joplin | 289 | 16326 | 11 | 15 | 24 |
+| Cape Girardeau-Sikeston | 225 | 12867 | 9 | 10 | 16 |
+| St. Joseph | 203 | 10105 | 4 | 6 | 8 |
 <!-- msa_table end -->
 
 ## STL-Farmington MSA New Daily Confirmed Cases by County
@@ -53,139 +53,139 @@ County populations are pulled from this
 <!-- county_table start -->
 | MSA | State | County | Total Deaths | Total Cases | Daily New Cases: Last 7-Day Average | Daily New Cases: Last 14-Day Average | Daily New Cases: Last 30-Day Average |
 |-----|-------|--------|---|---|---|---|---|
-| St. Louis-Farmington | Missouri | St. Louis | 1970 | 88485 | 132 | 136 | 171 |
-| Kansas City | Kansas | Johnson | 744 | 54370 | 94 | 155 | 157 |
-| St. Louis-Farmington | Illinois | St. Clair | 467 | 25497 | 51 | 49 | 62 |
-| St. Louis-Farmington | Illinois | Madison | 455 | 28026 | 48 | 45 | 66 |
-| Kansas City | Missouri | Jackson | 381 | 30137 | 35 | 45 | 59 |
-| St. Louis-Farmington | Missouri | St. Charles | 413 | 32961 | 32 | 33 | 49 |
-| St. Louis-Farmington | Missouri | St. Louis City | 424 | 21479 | 30 | 34 | 42 |
-| Kansas City | Kansas | Wyandotte | 266 | 19219 | 25 | 35 | 36 |
-| Springfield | Missouri | Greene | 427 | 23428 | 25 | 26 | 37 |
-| Kansas City | Missouri | Kansas City | 514 | 36687 | 16 | 26 | 38 |
-| St. Louis-Farmington | Missouri | Jefferson | 210 | 19006 | 15 | 18 | 27 |
-| Joplin | Missouri | Jasper | 219 | 12224 | 13 | 12 | 20 |
-| Kansas City | Missouri | Clay | 144 | 7898 | 11 | 11 | 14 |
-| Kansas City | Missouri | Cass | 89 | 7246 | 10 | 10 | 12 |
-| Kansas City | Kansas | Leavenworth | 77 | 6783 | 10 | 13 | 19 |
-| Missouri non-MSA | Missouri | Butler | 34 | 3504 | 10 | 9 | 9 |
-| Columbia-Jefferson City | Missouri | Boone | 80 | 15903 | 10 | 13 | 20 |
-| Springfield | Missouri | Christian | 78 | 6877 | 7 | 6 | 10 |
-| Kansas City | Missouri | Platte | 42 | 3119 | 6 | 5 | 6 |
-| St. Louis-Farmington | Missouri | Franklin | 154 | 8423 | 6 | 9 | 13 |
-| Columbia-Jefferson City | Missouri | Callaway | 43 | 4494 | 5 | 6 | 7 |
-| St. Louis-Farmington | Illinois | Monroe | 83 | 4066 | 5 | 5 | 8 |
-| Cape Girardeau-Sikeston | Missouri | Scott | 76 | 3833 | 5 | 5 | 5 |
-| Missouri non-MSA | Missouri | Cedar | 18 | 704 | 5 | 2 | 2 |
-| Kansas City | Kansas | Miami | 41 | 2637 | 5 | 4 | 5 |
-| Missouri non-MSA | Missouri | Taney | 88 | 4590 | 5 | 4 | 6 |
-| St. Louis-Farmington | Illinois | Macoupin | 79 | 4352 | 4 | 5 | 7 |
-| St. Louis-Farmington | Missouri | St. Francois | 104 | 7587 | 4 | 5 | 8 |
-| Missouri non-MSA | Missouri | Phelps | 121 | 3020 | 4 | 4 | 4 |
-| Missouri non-MSA | Missouri | Howell | 42 | 2821 | 4 | 2 | 2 |
-| Missouri non-MSA | Missouri | Pettis | 76 | 4787 | 4 | 3 | 5 |
-| Columbia-Jefferson City | Missouri | Cole | 114 | 8580 | 4 | 4 | 7 |
-| St. Louis-Farmington | Missouri | Lincoln | 36 | 4299 | 3 | 5 | 7 |
-| Cape Girardeau-Sikeston | Missouri | Cape Girardeau | 125 | 7518 | 3 | 4 | 9 |
-| Missouri non-MSA | Missouri | Camden | 81 | 3725 | 3 | 2 | 3 |
-| Kansas City | Missouri | Lafayette | 54 | 2557 | 3 | 3 | 5 |
-| St. Louis-Farmington | Illinois | Clinton | 89 | 5571 | 3 | 3 | 8 |
-| St. Joseph | Missouri | Buchanan | 135 | 6956 | 3 | 4 | 6 |
-| Missouri non-MSA | Missouri | Nodaway | 24 | 2577 | 3 | 2 | 1 |
-| Missouri non-MSA | Missouri | Johnson | 45 | 3865 | 3 | 4 | 6 |
-| St. Louis-Farmington | Illinois | Bond | 24 | 1910 | 3 | 3 | 3 |
-| St. Louis-Farmington | Illinois | Jersey | 46 | 2496 | 3 | 3 | 4 |
-| Springfield | Missouri | Polk | 31 | 2162 | 3 | 2 | 3 |
-| Missouri non-MSA | Missouri | Adair | 16 | 2076 | 2 | 2 | 3 |
-| Joplin | Missouri | Newton | 66 | 4080 | 2 | 3 | 5 |
-| Missouri non-MSA | Missouri | Lawrence | 72 | 2763 | 2 | 2 | 4 |
-| Kansas City | Missouri | Ray | 24 | 1517 | 2 | 4 | 3 |
-| Missouri non-MSA | Missouri | Stone | 37 | 2030 | 2 | 2 | 3 |
-| Missouri non-MSA | Missouri | Mississippi | 24 | 1270 | 2 | 1 | 1 |
-| Missouri non-MSA | Missouri | Pulaski | 44 | 2990 | 2 | 2 | 2 |
-| Missouri non-MSA | Missouri | Barry | 44 | 2193 | 2 | 2 | 3 |
-| St. Louis-Farmington | Missouri | Warren | 18 | 2095 | 2 | 2 | 3 |
-| Missouri non-MSA | Missouri | Stoddard | 36 | 2310 | 2 | 1 | 2 |
-| Kansas City | Missouri | Bates | 23 | 1083 | 1 | 1 | 1 |
-| St. Joseph | Kansas | Doniphan | 22 | 942 | 1 | 1 | 1 |
-| Missouri non-MSA | Missouri | Perry | 26 | 2051 | 1 | 1 | 1 |
-| Missouri non-MSA | Missouri | Crawford | 30 | 2052 | 1 | 1 | 2 |
-| Missouri non-MSA | Missouri | McDonald | 26 | 1922 | 1 | 1 | 1 |
-| Missouri non-MSA | Missouri | Schuyler | 3 | 274 | 1 | 0 | 0 |
-| Missouri non-MSA | Missouri | Henry | 36 | 1743 | 1 | 2 | 3 |
-| Missouri non-MSA | Missouri | Macon | 14 | 1211 | 1 | 1 | 1 |
-| Missouri non-MSA | Missouri | Dunklin | 19 | 2413 | 1 | 1 | 2 |
-| Missouri non-MSA | Missouri | Saline | 35 | 2427 | 1 | 1 | 3 |
-| Missouri non-MSA | Missouri | Barton | 12 | 967 | 1 | 1 | 1 |
-| Columbia-Jefferson City | Missouri | Osage | 13 | 1403 | 1 | 1 | 1 |
-| Columbia-Jefferson City | Missouri | Cooper | 26 | 1694 | 1 | 1 | 1 |
-| Missouri non-MSA | Missouri | Benton | 26 | 1453 | 1 | 1 | 2 |
-| Missouri non-MSA | Missouri | Audrain | 58 | 2075 | 1 | 1 | 2 |
-| Columbia-Jefferson City | Missouri | Howard | 5 | 721 | 1 | 0 | 0 |
-| Springfield | Missouri | Webster | 53 | 2996 | 1 | 1 | 2 |
-| Missouri non-MSA | Missouri | Livingston | 37 | 1331 | 1 | 1 | 2 |
-| Springfield | Missouri | Dallas | 24 | 826 | 1 | 0 | 1 |
-| Missouri non-MSA | Missouri | Randolph | 29 | 1813 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | St. Clair | 7 | 583 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Monroe | 10 | 597 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Texas | 22 | 1541 | 0 | 1 | 1 |
-| Cape Girardeau-Sikeston | Illinois | Alexander | 8 | 448 | 0 | 0 | 1 |
-| Kansas City | Missouri | Clinton | 64 | 1525 | 0 | 1 | 1 |
-| Missouri non-MSA | Missouri | Laclede | 66 | 2923 | 0 | 1 | 3 |
-| Missouri non-MSA | Missouri | Carter | 8 | 424 | 0 | 0 | 0 |
-| St. Louis-Farmington | Illinois | Calhoun | 2 | 478 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Washington | 47 | 2122 | 0 | 1 | 1 |
-| Missouri non-MSA | Missouri | Scotland | 3 | 263 | 0 | 0 | 0 |
-| Kansas City | Kansas | Linn | 8 | 749 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Vernon | 37 | 1391 | 0 | 1 | 2 |
-| Missouri non-MSA | Missouri | Shelby | 7 | 354 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Gasconade | 39 | 878 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Marion | 41 | 2646 | 0 | 1 | 2 |
-| Missouri non-MSA | Missouri | Oregon | 3 | 676 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Ste. Genevieve | 15 | 1617 | 0 | 1 | 1 |
+| St. Louis-Farmington | Missouri | St. Louis | 2007 | 88778 | 121 | 138 | 171 |
+| Kansas City | Kansas | Johnson | 752 | 54533 | 75 | 139 | 150 |
+| St. Louis-Farmington | Illinois | St. Clair | 468 | 25568 | 49 | 48 | 59 |
+| St. Louis-Farmington | Illinois | Madison | 458 | 28108 | 47 | 46 | 61 |
+| St. Louis-Farmington | Missouri | St. Louis City | 425 | 21544 | 37 | 32 | 42 |
+| St. Louis-Farmington | Missouri | St. Charles | 428 | 33001 | 31 | 30 | 47 |
+| Kansas City | Missouri | Jackson | 388 | 30193 | 26 | 41 | 57 |
+| Springfield | Missouri | Greene | 436 | 23482 | 25 | 26 | 35 |
+| Kansas City | Kansas | Wyandotte | 268 | 19280 | 24 | 34 | 35 |
+| Kansas City | Missouri | Kansas City | 525 | 36729 | 17 | 24 | 34 |
+| St. Louis-Farmington | Missouri | Jefferson | 223 | 19026 | 15 | 16 | 25 |
+| Kansas City | Kansas | Leavenworth | 83 | 6810 | 10 | 12 | 18 |
+| Kansas City | Missouri | Cass | 91 | 7267 | 10 | 9 | 12 |
+| Kansas City | Missouri | Clay | 151 | 7919 | 9 | 12 | 13 |
+| Missouri non-MSA | Missouri | Butler | 35 | 3517 | 9 | 8 | 9 |
+| Joplin | Missouri | Jasper | 220 | 12242 | 8 | 12 | 19 |
+| Columbia-Jefferson City | Missouri | Boone | 84 | 15911 | 7 | 11 | 18 |
+| St. Louis-Farmington | Missouri | Franklin | 164 | 8435 | 6 | 9 | 12 |
+| Springfield | Missouri | Christian | 80 | 6890 | 6 | 7 | 9 |
+| Kansas City | Missouri | Lafayette | 56 | 2573 | 5 | 4 | 5 |
+| St. Louis-Farmington | Illinois | Macoupin | 80 | 4364 | 5 | 5 | 7 |
+| Kansas City | Missouri | Platte | 43 | 3121 | 4 | 5 | 6 |
+| Cape Girardeau-Sikeston | Missouri | Scott | 77 | 3840 | 4 | 5 | 5 |
+| Missouri non-MSA | Missouri | Cedar | 19 | 703 | 4 | 2 | 1 |
+| St. Louis-Farmington | Illinois | Monroe | 83 | 4071 | 4 | 5 | 8 |
+| Columbia-Jefferson City | Missouri | Cole | 118 | 8593 | 4 | 4 | 7 |
+| Columbia-Jefferson City | Missouri | Callaway | 45 | 4501 | 4 | 4 | 6 |
+| Missouri non-MSA | Missouri | Phelps | 121 | 3022 | 4 | 4 | 4 |
+| Missouri non-MSA | Missouri | Taney | 90 | 4591 | 4 | 3 | 5 |
+| St. Louis-Farmington | Missouri | Lincoln | 39 | 4303 | 4 | 4 | 6 |
+| Kansas City | Kansas | Miami | 42 | 2645 | 3 | 4 | 4 |
+| St. Louis-Farmington | Missouri | St. Francois | 107 | 7591 | 3 | 3 | 7 |
+| St. Louis-Farmington | Illinois | Clinton | 89 | 5578 | 3 | 3 | 8 |
+| Cape Girardeau-Sikeston | Missouri | Cape Girardeau | 127 | 7523 | 3 | 4 | 9 |
+| Springfield | Missouri | Polk | 31 | 2171 | 3 | 2 | 3 |
+| Missouri non-MSA | Missouri | Nodaway | 25 | 2580 | 3 | 2 | 1 |
+| St. Louis-Farmington | Illinois | Bond | 24 | 1917 | 2 | 3 | 3 |
+| St. Joseph | Missouri | Buchanan | 136 | 6958 | 2 | 4 | 5 |
+| Missouri non-MSA | Missouri | Lawrence | 76 | 2763 | 2 | 1 | 3 |
+| Missouri non-MSA | Missouri | Pettis | 75 | 4790 | 2 | 3 | 5 |
+| Missouri non-MSA | Missouri | Camden | 81 | 3731 | 2 | 2 | 3 |
+| Missouri non-MSA | Missouri | Stoddard | 36 | 2314 | 2 | 1 | 2 |
+| Missouri non-MSA | Missouri | Johnson | 45 | 3871 | 2 | 3 | 6 |
+| Missouri non-MSA | Missouri | Barry | 45 | 2195 | 2 | 2 | 2 |
+| Joplin | Missouri | Newton | 69 | 4084 | 2 | 3 | 5 |
+| Missouri non-MSA | Missouri | Howell | 42 | 2824 | 2 | 2 | 2 |
+| St. Louis-Farmington | Illinois | Jersey | 47 | 2496 | 1 | 2 | 4 |
+| St. Louis-Farmington | Missouri | Warren | 19 | 2099 | 1 | 1 | 3 |
+| Missouri non-MSA | Missouri | Mississippi | 24 | 1272 | 1 | 1 | 1 |
+| Missouri non-MSA | Missouri | Stone | 38 | 2030 | 1 | 2 | 2 |
+| Missouri non-MSA | Missouri | Henry | 37 | 1749 | 1 | 2 | 3 |
+| Missouri non-MSA | Missouri | St. Clair | 7 | 588 | 1 | 1 | 0 |
+| Missouri non-MSA | Missouri | Saline | 38 | 2430 | 1 | 1 | 2 |
+| Kansas City | Missouri | Ray | 25 | 1517 | 1 | 4 | 3 |
+| Missouri non-MSA | Missouri | Crawford | 32 | 2056 | 1 | 1 | 2 |
+| Kansas City | Missouri | Bates | 23 | 1086 | 1 | 1 | 1 |
+| Missouri non-MSA | Missouri | Adair | 18 | 2080 | 1 | 2 | 2 |
+| Missouri non-MSA | Missouri | Schuyler | 5 | 275 | 1 | 0 | 0 |
+| Columbia-Jefferson City | Missouri | Cooper | 28 | 1694 | 1 | 0 | 1 |
+| Missouri non-MSA | Missouri | Perry | 27 | 2049 | 1 | 1 | 1 |
+| Missouri non-MSA | Missouri | Barton | 12 | 970 | 1 | 1 | 1 |
+| Missouri non-MSA | Missouri | Laclede | 66 | 2926 | 1 | 1 | 3 |
+| Kansas City | Kansas | Linn | 8 | 752 | 1 | 0 | 1 |
+| Missouri non-MSA | Missouri | Vernon | 38 | 1395 | 1 | 1 | 2 |
+| Missouri non-MSA | Missouri | McDonald | 26 | 1926 | 1 | 1 | 1 |
+| Missouri non-MSA | Missouri | Pulaski | 48 | 2990 | 1 | 2 | 2 |
+| Missouri non-MSA | Missouri | Randolph | 30 | 1815 | 1 | 0 | 0 |
+| Cape Girardeau-Sikeston | Illinois | Alexander | 9 | 451 | 1 | 0 | 1 |
+| Columbia-Jefferson City | Missouri | Howard | 6 | 722 | 1 | 0 | 0 |
+| Missouri non-MSA | Missouri | Audrain | 57 | 2077 | 1 | 0 | 2 |
+| Columbia-Jefferson City | Missouri | Osage | 14 | 1404 | 0 | 1 | 1 |
+| Missouri non-MSA | Missouri | Livingston | 37 | 1331 | 0 | 0 | 1 |
+| Missouri non-MSA | Missouri | Macon | 15 | 1213 | 0 | 1 | 1 |
+| St. Joseph | Kansas | Doniphan | 22 | 942 | 0 | 1 | 1 |
+| Missouri non-MSA | Missouri | Miller | 49 | 2319 | 0 | 0 | 1 |
+| Springfield | Missouri | Webster | 53 | 2995 | 0 | 0 | 2 |
+| Missouri non-MSA | Missouri | Morgan | 42 | 1626 | 0 | 0 | 1 |
+| Missouri non-MSA | Missouri | Dunklin | 19 | 2412 | 0 | 0 | 2 |
+| Missouri non-MSA | Missouri | Douglas | 26 | 771 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Gasconade | 41 | 879 | 0 | 0 | 1 |
+| Missouri non-MSA | Missouri | Benton | 27 | 1453 | 0 | 1 | 2 |
+| Missouri non-MSA | Missouri | Linn | 12 | 545 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Texas | 22 | 1544 | 0 | 0 | 1 |
+| Springfield | Missouri | Dallas | 24 | 827 | 0 | 0 | 1 |
+| Missouri non-MSA | Missouri | Oregon | 3 | 677 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Shelby | 7 | 355 | 0 | 0 | 0 |
 | Missouri non-MSA | Missouri | Pike | 22 | 1488 | 0 | 0 | 1 |
-| St. Joseph | Missouri | Andrew | 17 | 1284 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Linn | 12 | 544 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Wayne | 10 | 819 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Douglas | 25 | 769 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Ralls | 12 | 758 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Maries | 7 | 536 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Carroll | 23 | 835 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Dent | 16 | 820 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Ozark | 13 | 550 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Knox | 2 | 179 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Pemiscot | 28 | 1412 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Lewis | 7 | 631 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Ste. Genevieve | 15 | 1618 | 0 | 0 | 1 |
+| St. Louis-Farmington | Illinois | Calhoun | 2 | 482 | 0 | 0 | 0 |
+| St. Joseph | Missouri | Andrew | 18 | 1284 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Washington | 48 | 2121 | 0 | 0 | 1 |
+| Missouri non-MSA | Missouri | Marion | 42 | 2646 | 0 | 0 | 2 |
+| Missouri non-MSA | Missouri | Monroe | 10 | 597 | 0 | 0 | 0 |
 | Columbia-Jefferson City | Missouri | Moniteau | 29 | 1681 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Miller | 49 | 2316 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Chariton | 6 | 422 | 0 | 0 | 0 |
-| Cape Girardeau-Sikeston | Missouri | Bollinger | 12 | 1053 | 0 | 0 | 0 |
-| Kansas City | Missouri | Caldwell | 10 | 641 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Morgan | 40 | 1622 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Shannon | 10 | 482 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Dade | 13 | 420 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Lewis | 10 | 631 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Madison | 16 | 1346 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Wayne | 11 | 821 | 0 | 0 | 1 |
+| Missouri non-MSA | Missouri | Dent | 17 | 821 | 0 | 0 | 0 |
 | St. Joseph | Missouri | DeKalb | 27 | 921 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Ripley | 14 | 854 | 0 | 0 | 2 |
-| Missouri non-MSA | Missouri | Madison | 16 | 1345 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Putnam | 3 | 225 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Mercer | 2 | 178 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Clark | 6 | 471 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Worth | 1 | 142 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Hickory | 13 | 467 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Harrison | 14 | 827 | 0 | 0 | 1 |
+| Missouri non-MSA | Missouri | Maries | 7 | 536 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Ralls | 12 | 758 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Dade | 14 | 420 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Grundy | 34 | 829 | 0 | 0 | 0 |
+| Cape Girardeau-Sikeston | Missouri | Bollinger | 12 | 1053 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Carroll | 23 | 835 | 0 | 0 | 1 |
+| Missouri non-MSA | Missouri | Carter | 9 | 424 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Chariton | 6 | 423 | 0 | 0 | 0 |
 | Missouri non-MSA | Missouri | Montgomery | 10 | 568 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Atchison | 6 | 290 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | New Madrid | 45 | 1769 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Holt | 10 | 367 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Ozark | 16 | 550 | 0 | 0 | 1 |
+| Kansas City | Missouri | Caldwell | 11 | 641 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Scotland | 3 | 263 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Shannon | 12 | 482 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Iron | 5 | 465 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Pemiscot | 29 | 1413 | 0 | 0 | 0 |
+| Kansas City | Missouri | Clinton | 65 | 1525 | 0 | 0 | 1 |
+| Missouri non-MSA | Missouri | Ripley | 14 | 855 | 0 | 0 | 2 |
+| Missouri non-MSA | Missouri | Worth | 1 | 143 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Putnam | 3 | 225 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Sullivan | 14 | 747 | 0 | 0 | 0 |
 | Unassigned/Out of MO | Missouri | Unassigned | 0 | 0 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Grundy | 34 | 828 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Sullivan | 14 | 746 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Gentry | 20 | 734 | 0 | 0 | 0 |
-| Unassigned/Out of MO | Missouri | Out of MO | 0 | 0 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Daviess | 11 | 587 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Knox | 2 | 179 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Atchison | 6 | 290 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Clark | 6 | 472 | 0 | 0 | 0 |
 | Missouri non-MSA | Missouri | Reynolds | 3 | 260 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | Holt | 10 | 366 | 0 | 0 | 0 |
-| Missouri non-MSA | Missouri | New Madrid | 45 | 1768 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Daviess | 11 | 587 | 0 | 0 | 0 |
+| Unassigned/Out of MO | Missouri | Out of MO | 0 | 0 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Gentry | 21 | 734 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Mercer | 2 | 178 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Hickory | 13 | 467 | 0 | 0 | 0 |
 | Missouri non-MSA | Missouri | Wright | 29 | 1365 | 0 | 0 | 1 |
-| Missouri non-MSA | Missouri | Iron | 5 | 464 | 0 | 0 | 0 |
+| Missouri non-MSA | Missouri | Harrison | 14 | 823 | 0 | 0 | 0 |
 <!-- county_table end -->
 
 <a name="release-notes"></a>
