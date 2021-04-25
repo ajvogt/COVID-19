@@ -1,6 +1,6 @@
 # COVID-19 Missouri Statistics & Regional Breakdowns
 Author: Adam J. Vogt  
-Updated: 04/25/2021  
+Final Update: 04/25/2021  
 Source: [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)  
 Source Code: `/ajvogt-analysis/mo_analysis_script.py`  
 [Release Notes found below](#release-notes)
@@ -15,6 +15,11 @@ are a custom combination of MSAs and
 [Combined Statistical Areas](https://en.wikipedia.org/wiki/Combined_statistical_area) (CSA). 
 County populations are pulled from this 
 [JHU CSSE repository file](https://github.com/ajvogt/COVID-19/blob/master/csse_covid_19_data/UID_ISO_FIPS_LookUp_Table.csv).
+
+**Update**: This analysis will be paused indefinitely as of 4/25/2021.  Data irregularities due to the mass update and backfill of MO Health Department data has caused issues with having an informative view of the Daily Confirmed Cases.  However, if you are still interested in following these trends, [covidactnow.org](https://covidactnow.org/) provides and excellent resource as a U.S. COVID Risk & Vaccine Tracker.  Corresponding plots can acutally be found here:
+
+* [St. Louis Metro Area](https://covidactnow.org/us/metro/st-louis_mo-il/)
+* [Missouri](https://covidactnow.org/us/missouri-mo/)
 
 ## Missouri New Daily Confirmed Cases by Metropolitan Statistcal Areas
 ![](images/mo_daily_cases.png)
@@ -192,6 +197,7 @@ County populations are pulled from this
 ## Release Notes
 
 ### Release Notes
+* 4/25/2021: final update for this project
 * 1/17/2021: including cumulative deaths plots
 * 1/4/2021: small fix for including 2021 data
 * 7/20/2020:
